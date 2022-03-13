@@ -58,5 +58,4 @@ int a= s->top;
         cout<< "is bad\n";
     }
     return 0;
-
 }
