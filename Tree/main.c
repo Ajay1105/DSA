@@ -61,6 +61,32 @@ if(root->data > key){ searchBST(root->left,key);}
 if(root->data < key){ searchBST(root->right,key);}
 }
 
+void insertBST(struct node *root, int key){
+struct node *prev = NULL;
+while(root!=NULL){
+prev = root;
+if(key==root->data){printf("Cannot insert %d, already in BST", key);return;       }
+else if(key<root->data){root = root->left;}
+else{root = root->right;       }
+}
+struct node* new = createNode(key);
+if(key<prev->data){prev->left = new;}
+else{prev->right = new;}
+}
+
+/*void insertBST(struct node*root, int key){
+struct node * prev = NULL;
+while(root!= NULL){
+        prev = root;
+    if(root->data == key) {return;}
+    else if(root->data > key){ root = root->left;}
+    else if(root->data < key){ root = root->right;}
+}
+struct node * n = createNode(key);
+if(n->data > key){ prev->left= n;}
+else if(n->data < key){ prev->right= n;}
+}*/
+
 int main()
 {
 struct node *n1= createNode(5);
@@ -77,5 +103,7 @@ postorderTraversal(n1);printf("\n");
 inorderTraversal(n1);
 printf("\n%d",checkBST(n1));
 printf("\n%d\n",searchBST(n1,7));
+insertBST(n1,2);
+preorderTraversal(n1);
     return 0;
 }
