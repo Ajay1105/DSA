@@ -54,6 +54,13 @@ else{
 }
 }
 
+int searchBST(struct node*root, int key){
+if(root == NULL){return 0;}
+if(root->data==key){ return 1;}
+if(root->data > key){ searchBST(root->left,key);}
+if(root->data < key){ searchBST(root->right,key);}
+}
+
 int main()
 {
 struct node *n1= createNode(5);
@@ -69,5 +76,6 @@ preorderTraversal(n1);printf("\n");
 postorderTraversal(n1);printf("\n");
 inorderTraversal(n1);
 printf("\n%d",checkBST(n1));
+printf("\n%d\n",searchBST(n1,7));
     return 0;
 }
