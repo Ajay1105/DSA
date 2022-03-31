@@ -37,12 +37,29 @@ if(n != NULL){
 }
 }
 
+int checkBST(struct node *root){
+static struct node* prev = NULL;
+if(root!= NULL){
+    if(!checkBST(root->left)){
+        return 0;
+    }
+    if(prev != NULL && root->data < prev->data){
+        return 0;
+    }
+        prev = root;
+       return checkBST(root->right);
+}
+else{
+    return 1;
+}
+}
+
 int main()
 {
-struct node *n1= createNode(3);
+struct node *n1= createNode(5);
 struct node *n2= createNode(4);
-struct node *n3= createNode(5);
-struct node *n4= createNode(6);
+struct node *n3= createNode(6);
+struct node *n4= createNode(3);
 struct node *n5= createNode(7);
 (*n1).left=n2;
 (*n1).right=n3;
@@ -51,5 +68,6 @@ n3->right =n5;
 preorderTraversal(n1);printf("\n");
 postorderTraversal(n1);printf("\n");
 inorderTraversal(n1);
+printf("\n%d",checkBST(n1));
     return 0;
 }
