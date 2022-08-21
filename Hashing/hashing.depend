@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1659290271 source:c:\users\aky11\desktop\pdfs\dsa\hashing\hashing\main.cpp
+	<iostream>
+	<unordered_map>
+	<cstring>
+
