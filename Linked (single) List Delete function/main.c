@@ -16,6 +16,7 @@ while(ptr!=NULL){
 void delete(struct Node * ptr){
 ptr->data = ptr->next->data;
 ptr->next = ptr->next->next;
+free(ptr->next);
 }
 
 void main()
