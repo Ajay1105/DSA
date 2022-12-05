@@ -17,6 +17,17 @@ printf("%d is inserted at the start of linked list\n",e);
 return insert;
 }
 
+void search(struct Node*head,int e){
+struct Node * temp = head;
+ while(temp->data != e ){
+  temp = temp->next;
+  if(temp == NULL) break;
+ }
+ if(temp == NULL) printf("element not found!\n");
+ else printf("element found\n");
+}
+
+
 struct Node* Insert_end(struct Node*ptr,int e){
 struct Node * insert = (struct Node*) malloc(sizeof(struct Node));
 insert->data =e;
@@ -69,5 +80,10 @@ int main()
    third = Insert_end(third,9);
    printf("display is called again\n");
    display(head);
+  int k;
+  printf("Enter element to be searched: ");
+  scanf("%d",&k);
+search(head,k);
+
    return 0;
 }

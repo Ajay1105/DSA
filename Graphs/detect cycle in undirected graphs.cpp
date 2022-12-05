@@ -46,6 +46,6 @@ int main()
     addEdge(vec,2,4);
     printEdges(vec,n);
     cout<<endl;
-    detectCycle(vec,0,-1)?cout<<"yes":cout<< "no";
+    detectCycle(vec,0,-1)?cout<<"yes\n\n":cout<< "no\n\n";
     return 0;
 }
